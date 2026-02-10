@@ -1,0 +1,10 @@
+# Compiled files
+*.exe
+*.out
+bin/
+
+# Object files
+*.o
+
+# MSYS2 / Windows noise
+*.dll
