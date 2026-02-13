@@ -1,7 +1,8 @@
 #include<iostream>
 #include<string>
-#include "../include/User.hpp"
-#include "../include/AuthManager.hpp"
+#include<stdexcept>
+#include "User.hpp"
+#include "AuthManager.hpp"
 
 int main(){
     AuthManager auth;
@@ -9,6 +10,7 @@ int main(){
     std::string username;
     std::string password;
     do{
+        try{
     std::cout<<"***** User Authentication Management System ******\n";
     std::cout<<" 1.Register\n 2.Login\n 3.Logout\n 4.Exit\n";
     std::cout<<"Enter Your Choice :";
@@ -16,7 +18,7 @@ int main(){
     
     switch(choice){
         case 1:
-        std::cout<<"Username :";
+        std::cout<<"Username :"; 
         std::cin>>username;
         std::cout<<"Password :";
         std::cin>>password;
@@ -59,6 +61,9 @@ int main(){
         throw 
         std::invalid_argument("Invalid Choice, Please Recheck \n");
     }
-
+        }
+        catch(const std::exception& e){
+            std::cout<<"Error:"<<e.what();
+        }
     }while(choice!=4);
     return 0;}
